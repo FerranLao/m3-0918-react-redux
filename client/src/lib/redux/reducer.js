@@ -16,15 +16,15 @@ export const rootReducer = (store = initialStore, action) => {
         case "SELECT_POKEMON":
             store = {
                 ...store,
-                favoritePokemon: action.pokemon
+                favoritePokemon: store.favoritePokemon && action.pokemon.id === store.favoritePokemon.id ? null:action.pokemon
             }
         break;
-        case "UNSELECT_POKEMON":
-        store = {
-            ...store,
-            favoritePokemon: null
-        }
-        break;
+        // case "UNSELECT_POKEMON":
+        // store = {
+        //     ...store,
+        //     favoritePokemon: null
+        // }
+        // break;
         default: return store
     }
     // For now, don't handle any actions
